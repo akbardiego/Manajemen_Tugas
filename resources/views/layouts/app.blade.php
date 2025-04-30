@@ -19,6 +19,7 @@
 
     <!-- Custom styles for this template-->
     <link href="{{ asset ('sbadmin2/css/sb-admin-2.min.css') }}" rel="stylesheet">
+    <link href="{{ asset ('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.css') }}" rel="stylesheet">
 
 </head>
 
@@ -43,7 +44,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{ $menuDashboard ?? '' }}">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{ route('dashboard') }}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -58,15 +59,15 @@
 
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+            <li class="nav-item {{ $menuAdminUser ?? '' }}">
+                <a class="nav-link" href="{{ route('user') }}">
                     <i class="fas fa-user"></i>
                     <span>Data User</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item {{ $menuAdminTugas ?? '' }}">
+                <a class="nav-link" href="{{ route('tugas') }}">
                     <i class="fas fa-tasks"></i>
                     <span>Data Tugas</span></a>
             </li>
@@ -199,12 +200,12 @@
     <!-- Bootstrap core JavaScript-->
     <script src="{{ asset('sbadmin2/vendor/jquery/jquery.min.js') }}"></script>
     <script src="{{ asset('sbadmin2/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-
-    <!-- Core plugin JavaScript-->
     <script src="{{ asset('sbadmin2/vendor/jquery-easing/jquery.easing.min.js') }}"></script>
-
-    <!-- Custom scripts for all pages-->
     <script src="{{ asset('sbadmin2/js/sb-admin-2.min.js') }}"></script>
+
+    <script src="{{ asset('sbadmin2/vendor/datatables/jquery.dataTables.min.js') }}"></script>
+    <script src="{{ asset('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.js') }}"></script>
+    <script src="{{ asset('sbadmin2/js/demo/datatables-demo.js') }}"></script>
 
 </body>
 
