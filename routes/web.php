@@ -10,11 +10,19 @@ use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 Route::get('/', function () {
     return view('welcome');
 })->name('wellcome');
-
-Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
-
+//login
 Route::get('login', [AuthController::class,'login'])->name('login');
+Route::post('login', [AuthController::class,'loginProses'])->name('loginProses');
 
-Route::get('user', [UserController::class,'index'])->name('user');
+//logout
+Route::get('logout', [AuthController::class,'logout'])->name('logout');
 
-Route::get('tugas', [TugasController::class,'index'])->name('tugas');
+
+Route::middleware('checkLogin')->group(function(){
+    //dashboard
+    Route::get('dashboard',[DashboardController::class,'index'])->name('dashboard');
+    //user
+    Route::get('user', [UserController::class,'index'])->name('user');
+    //tugas
+    Route::get('tugas', [TugasController::class,'index'])->name('tugas');
+});
