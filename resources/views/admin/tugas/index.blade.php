@@ -17,7 +17,7 @@
             <div>
                 <a href="#" class="btn btn-sm btn-success">
                     <i class="fas fa-file-excel mr-2"></i>
-                    Exel
+                    Excel
                 </a>
                 <a href="" class="btn btn-sm btn-danger">
                     <i class="fas fa-file-pdf mr-2"></i>
