@@ -27,7 +27,7 @@
         </div>
         <div class="card-body">
         <div class="table-responsive">
-                                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                <table class="table table-bordered table-hover" id="dataTable" width="100%" cellspacing="0">
                                     <thead class="bg-primary text-white">
                                         <tr class="text-center">
                                             <th>No</th>
@@ -56,13 +56,16 @@
                                                 </td>
                                                
                                                 <td class="text-center">
-                                                    <a href="{{ route('userEdit',$item) }}" class="btn btn-sm btn-warning">
+                                                    <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#modalTugasShow{{ $item->id }}">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                    <a href="{{ route('tugasEdit',$item) }}" class="btn btn-sm btn-warning">
                                                         <i class="fas fa-edit"></i>
                                                     </a>
-                                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#exampleModal{{ $item->id }}">
+                                                    <button type="button" class="btn btn-sm btn-danger" data-toggle="modal" data-target="#modalTugasDestroy{{ $item->id }}">
                                                         <i class="fas fa-trash"></i>
                                                     </button>
-                                                    @include('admin/user/modal')
+                                                    @include('admin/tugas/modal')
                                                 </td>
                                             </tr>
                                         @endforeach
