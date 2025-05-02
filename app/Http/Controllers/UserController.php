@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use App\Exports\UserExport;
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
 
 use Illuminate\Support\Facades\Hash;
+use Maatwebsite\Excel\Facades\Excel;
 use function Laravel\Prompts\password;
 
 class UserController extends Controller
@@ -96,6 +98,17 @@ class UserController extends Controller
         $user->delete();
 
         return redirect()->route('user')->with('success','Data Berhasil Di Hapus');
+    }
+
+    public function excel(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        $data = array(
+            'user'      => User::get(),
+            'tanggal' => now()->format('d-m-Y'),
+            'jam'   => now()->format('H.i.s'),
+        );
+        
+        return Excel::download(new UserExport, 'DataUser_'.$filename.'.xlsx');
     }
 
     public function pdf(){
