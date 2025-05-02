@@ -33,7 +33,7 @@
                                             <th>No</th>
                                             <th>Nama</th>
                                             <th>Email</th>
-                                            <th>jabatan</th>
+                                            <th>Jabatan</th>
                                             <th>Status</th>
                                             <th>
                                                 <i class="fas fa-cog"></i>
