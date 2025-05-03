@@ -4,7 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Models\User;
 use App\Models\Tugas;
+use App\Exports\TugasExport;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TugasController extends Controller
 {
@@ -87,7 +89,12 @@ class TugasController extends Controller
         $user = User::where('id', $tugas->user_id)->first();
         $user->is_tugas = false;
         $user->save();
-        
+
         return redirect()->route('tugas')->with('success','Data Berhasil Di Hapus');
+    }
+
+    public function excel(){
+        $filename = now()->format('d-m-Y_H.i.s');
+        return Excel::download(new TugasExport, 'DataTugas_'.$filename.'.xlsx');
     }
 }
