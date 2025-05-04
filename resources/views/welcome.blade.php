@@ -56,7 +56,12 @@
         <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
       </nav>
 
-      <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+      @auth
+        <a class="btn-getstarted" href="{{ route('dashboard') }}">Dashboard</a>
+
+      @else
+        <a class="btn-getstarted" href="{{ route('login') }}">Login</a>
+      @endauth
 
     </div>
   </header>
@@ -72,7 +77,11 @@
             <h1>M-Tugas</h1>
             <p>Aplikasi Manajemen Tugas</p>
             <div class="d-flex">
-              <a href="#about" class="btn-get-started">Get Started</a>
+              @auth
+                <a href="{{ route('dashboard') }}" class="btn-get-started">Dashboard</a>
+              @else
+                <a href="{{ route('login') }}" class="btn-get-started">Login</a>
+              @endauth
             </div>
           </div>
           <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="100">
