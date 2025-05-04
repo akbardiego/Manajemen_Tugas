@@ -78,6 +78,10 @@
             @else
                 <div class="row">
                     <div class="col-6">
+                        Status
+                    </div>
+                    <div class="col-6">
+                        :
                         <span class="badge badge-danger">
                             Belum Ditugaskan
                         </span>
